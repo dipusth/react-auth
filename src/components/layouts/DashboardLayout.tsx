@@ -3,13 +3,9 @@ import Sidebar from "../Common/Sidebar";
 
 const DashboardLayout = () => {
   return (
-    <div className="dark:text-white flex h-full">
+    <div className="dark:text-white flex h-full wrapper">
       <Sidebar />
-
       <Outlet />
-      {/* <button className="inline-block w-40" onClick={handleLogOut}>
-        Logout
-      </button> */}
     </div>
   );
 };

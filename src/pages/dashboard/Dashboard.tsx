@@ -1,4 +1,3 @@
-import Sidebar from "@/components/Common/Sidebar";
 import {
   deleteActiveUser,
   getActiveUser,
@@ -24,13 +23,14 @@ const Dashboard = () => {
     navigate("/login");
   };
   return (
-    <div className="dark:text-white flex h-full">
-      <Sidebar />
-      <div>Welcome {activeser?.name}</div>
-      <h1>This is Dashboard page</h1>
-      <button className="inline-block w-40" onClick={handleLogOut}>
-        Logout
-      </button>
+    <div className="dark:text-white flex h-full p-5">
+      <div>
+        <h1 className="text-4xl font-bold"> Welcome {activeser?.name}</h1>
+        <p>This is Dashboard page</p>
+        <button className="inline-block w-40" onClick={handleLogOut}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
