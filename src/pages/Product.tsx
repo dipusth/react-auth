@@ -163,27 +163,32 @@ const Product = () => {
             </thead>
             <tbody>
               {products.map((product, index) => {
-                const hasData = selectedProducts.some((item) => {
-                  return item.id === product.id;
-                });
+                const hasData = selectedProducts.some(
+                  (item) => item.id === product.id
+                );
+
                 return (
                   <tr
                     key={product.id}
                     data-list={`tableList-${index}`}
                     onClick={() => {
                       if (hasData) {
-                        return;
+                        setSelectedProducts((prev) =>
+                          prev.filter((item) => item.id !== product.id)
+                        );
+                      } else {
+                        setSelectedProducts((prev) => [...prev, product]);
                       }
-                      setSelectedProducts([...selectedProducts, product]);
                     }}
                     className={`${
                       hasData ? "selected" : ""
-                    } border-b border-gray-200 dark:border-gray-700 table-list`}
+                    } border-b border-gray-200 dark:border-gray-700 table-list cursor-pointer`}
                   >
                     <td className="p-2 text-center">
                       <input
                         type="checkbox"
                         checked={hasData}
+                        readOnly // ✅ So clicking checkbox doesn't throw error
                         data-checkbox={`check-${index}`}
                       />
                     </td>
@@ -191,17 +196,6 @@ const Product = () => {
                     <td className="p-2">{product.category}</td>
                     <td className="p-2">${product.price.toFixed(2)}</td>
                     <td className="p-2 text-center">
-                      {/* <button
-                        onClick={() => {
-                          if (hasData) {
-                            return;
-                          }
-                          setSelectedProducts([...selectedProducts, product]);
-                        }}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded mr-2"
-                      >
-                        Select
-                      </button> */}
                       <Link
                         to={`/product/${product.id}`}
                         className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
