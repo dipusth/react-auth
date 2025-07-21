@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import "./style.css";
+
 import {
   addNewUser,
   isUserAlreadyReistered,
   type IuserType,
 } from "@/LocalStorage";
 import { Link } from "react-router-dom";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Label } from "@radix-ui/react-label";
+import { Input } from "@/components/ui/input";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const Roles = {
@@ -48,7 +58,7 @@ export const Register = () => {
     }
 
     addNewUser(data);
-    setMessage("User created. click on Login.");
+    setMessage("User created succesfully. click on Login.");
     setData({
       name: "",
       username: "",
@@ -58,39 +68,72 @@ export const Register = () => {
     // Save the user in local storage
   };
   return (
-    <>
-      <form onSubmit={handleFormSubmit}>
-        <h3>Register</h3>
-        <label for="name">Name</label>
-        <input
-          type="text"
-          placeholder="Enter Name"
-          id="name"
-          value={data.name}
-          onChange={handleInputChange}
-        />
-        <label for="username">Username</label>
-        <input
-          type="text"
-          placeholder="Email or Phone"
-          id="username"
-          value={data.username}
-          onChange={handleInputChange}
-        />
-        <label for="password">Password</label>
-        <input
-          type="password"
-          placeholder="Password"
-          id="password"
-          value={data.password}
-          onChange={handleInputChange}
-        />
-        <button className="w-full">Register</button>
-        <div className="social">
-          {message && <p>{message} </p>}
-          <Link to="/login">Login</Link>
-        </div>
-      </form>
-    </>
+    <div className="form-wrapper py-20 max-w-[400px] mx-auto">
+      <Card>
+        <CardHeader className="text-center">
+          <CardTitle className="text-xl">Register</CardTitle>
+          <CardDescription>Please enter the form details below</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleFormSubmit}>
+            <div className="grid gap-6">
+              <div className="grid gap-6">
+                <div className="grid gap-3">
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Enter Full Name"
+                    value={data.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="username">username</Label>
+                  <Input
+                    id="username"
+                    type="email"
+                    placeholder="m@example.com"
+                    value={data.username}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="grid gap-3">
+                  <div className="flex items-center">
+                    <Label htmlFor="password">Password</Label>
+                  </div>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={data.password}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full btn">
+                  Sign up
+                </Button>
+
+                <div className="text-center text-primary-500">
+                  {message && <p>{message} </p>}
+                </div>
+              </div>
+              <div className="text-center text-sm">
+                Already have an account?{" "}
+                <Link to="/Login" className="text-primary-500">
+                  Log in
+                </Link>
+              </div>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+      <div className="mt-1 text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
+        and <a href="#">Privacy Policy</a>.
+      </div>
+    </div>
   );
 };
