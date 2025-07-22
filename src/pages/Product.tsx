@@ -1,45 +1,32 @@
-import DialogModal from "@/components/Common/dialog/DialogModal";
-import PopOver from "@/components/Common/dialog/DialogModal";
+import { Button } from "@/components/ui/button";
 import Delete from "@/components/ui/icon/Delete";
-import { Popover } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { fetchApi } from "@/hooks/useFetchApi";
-import { PopoverTrigger } from "@radix-ui/react-popover";
+import type { ProductType, stateProps } from "@/types/PostType";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
-
 // Define an interface for the handler parameters
-interface HandleClickParams {
-  event: React.MouseEvent<HTMLTableRowElement>;
-  data: Product;
-}
-const Product = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+// interface HandleClickParams {
+//   event: React.MouseEvent<HTMLTableRowElement>;
+//   data: Product;
+// }
+const Product = ({ selectedProducts, setSelectedProducts }: stateProps) => {
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
-  const productApi = "https://fakestoreapi.com/products";
 
+  const productApi = "https://fakestoreapi.com/products";
+  console.log("selectedProducts before useEffect", selectedProducts);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetchApi(productApi);
-        const data: Product[] = await response.json();
+        if (!response.ok) {
+          throw new Error(await response.text());
+        }
+        const data: ProductType[] = await response.json();
         setProducts(data);
       } catch (err: unknown) {
         setError(
@@ -53,35 +40,9 @@ const Product = () => {
     fetchProducts();
   }, []);
 
-  const handleSelectProduct = (product: Product) => {
-    // const isIncluded = selectedProducts.some((item) => item.id === product.id);
-    // if (isIncluded) {
-    //   setIsSelected(true);
-    //   return;
-    // }
-    setSelectedProducts((prev) => {
-      // console.log("prev selected:", prev);
-      return [...prev, product];
-    });
-    setIsSelected(false);
-    // console.log("isSelected", isSelected);
-    // console.log("setSelectedProduct", product);
-  };
-  console.log("selectedProducts", selectedProducts);
-  const handleRowClick = ({ event, data }: HandleClickParams) => {
-    event.preventDefault();
-    const clickedVal = event.target;
-    console.log("clickedVal", clickedVal);
-    if (data) {
-      setIsChecked(true);
-      console.log("isChecked", isChecked);
-      console.log("isChecked data ", data);
-    }
-  };
-
   useEffect(() => {
+    console.log("selectedProducts updated", selectedProducts);
     let timer: ReturnType<typeof setTimeout>;
-
     if (selectedProducts.length > 0) {
       timer = setTimeout(() => {
         setAnimate(true);
@@ -93,6 +54,23 @@ const Product = () => {
     return () => clearTimeout(timer);
   }, [selectedProducts]);
 
+  const removeItem = () => {
+    console.log("removed");
+    console.log("selectedProducts", selectedProducts);
+
+    // selectedProducts.map((s) => {
+    //   const filteredArr = products.filter((newp) => newp.id !== s.id);
+    //   console.log("filteredArr", filteredArr);
+    //   setProducts(filteredArr);
+    // });
+    // const selectedIds = selectedProducts.map((p) => p.id);
+    const filteredproducts = products.filter(
+      (product) => !selectedProducts.some((p) => p.id === product.id)
+    );
+    setProducts(filteredproducts);
+    setSelectedProducts([]);
+    console.log("filteredproducts", filteredproducts);
+  };
   // const handleDeleteProduct = () => {
   //   if (selectedProduct) {
   //     setProducts(
@@ -137,12 +115,16 @@ const Product = () => {
             <div
               className={`${
                 animate ? "animate-down" : " "
-              } opacity-0 box-shadow fixed top-0 min-w-[50%] flex justify-between p-5 left-1/2 transition-2 transform -translate-x-1/2 rounded-lg box-shadow bg-white z-10`}
+              } items-center opacity-0 box-shadow fixed top-0 min-w-[50%] flex justify-between p-5 left-1/2 transition-2 transform -translate-x-1/2 rounded-lg box-shadow bg-white z-10`}
             >
               <h4>
-                <b>{selectedProducts.length}</b> items selected
+                <b>{selectedProducts.length}</b>{" "}
+                <i className="text-slate-500">items selected</i>
               </h4>
-              <Delete className="text-red-600 w-5" />
+              <Button variant="outline" onClick={removeItem}>
+                <Delete className="text-red-600 w-5 cursor-pointer" />
+                Delete
+              </Button>
             </div>
           </>
         )}
@@ -166,33 +148,41 @@ const Product = () => {
                 const hasData = selectedProducts.some(
                   (item) => item.id === product.id
                 );
+                console.log("const hasData", hasData);
 
                 return (
                   <tr
                     key={product.id}
                     data-list={`tableList-${index}`}
                     onClick={() => {
+                      console.log("hasData", hasData);
                       if (hasData) {
-                        setSelectedProducts((prev) =>
-                          prev.filter((item) => item.id !== product.id)
-                        );
+                        console.log("if hasData", hasData);
+                        setSelectedProducts((prev) => {
+                          return prev.filter((newp) => newp.id !== product.id);
+                        });
                       } else {
                         setSelectedProducts((prev) => [...prev, product]);
+                        console.log("else hasData", hasData);
+                        console.log("else selectedProducts", selectedProducts);
+                        console.log("else product", product);
                       }
                     }}
                     className={`${
-                      hasData ? "selected" : ""
+                      hasData ? "bg-slate-200" : ""
                     } border-b border-gray-200 dark:border-gray-700 table-list cursor-pointer`}
                   >
                     <td className="p-2 text-center">
                       <input
                         type="checkbox"
                         checked={hasData}
-                        readOnly // ✅ So clicking checkbox doesn't throw error
+                        style={{ accentColor: "#0285ab" }}
                         data-checkbox={`check-${index}`}
                       />
                     </td>
-                    <td className="p-2">{product.title}</td>
+                    <td className="p-2">
+                      {product.title} {hasData}
+                    </td>
                     <td className="p-2">{product.category}</td>
                     <td className="p-2">${product.price.toFixed(2)}</td>
                     <td className="p-2 text-center">
@@ -210,34 +200,6 @@ const Product = () => {
           </table>
         </ScrollArea>
       </div>
-
-      {/* Delete Confirmation Popup */}
-      {/* {selectedProducts && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-md w-full">
-            <h2 className="text-xl font-bold mb-4">Delete Product</h2>
-            <p className="mb-4">
-              Are you sure you want to delete{" "}
-              <strong>{selectedProducts.title}</strong>?
-            </p>
-
-            <div className="flex justify-end gap-3">
-              <button
-                onClick={() => setSelectedProducts(null)}
-                className="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 px-4 py-2 rounded"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleDeleteProduct}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };

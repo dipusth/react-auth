@@ -36,4 +36,17 @@ export const DaasboardWraper = styled.div`
       height: 0;
     }
   }
+  .notification {
+    position: relative;
+    .badge {
+      position: absolute;
+      color: white;
+      width: 25px;
+      height: 25px;
+      top: -14px;
+      display: inline-block;
+      left: 10px;
+      text-align: center;
+    }
+  }
 `;

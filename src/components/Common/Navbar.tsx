@@ -12,11 +12,12 @@ import PhpImg from "@/assets/images/php.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import Email from "../ui/icon/email";
+import Email from "../ui/icon/Email";
+
 const Navbar = () => {
   return (
     <header className="sticky inset-x-0 top-0 z-50 mb-20order-b-2 border-slate-200">
-      <div className="header-top bg-primary-900 text-white py-3">
+      <div className="header-top bg-primary-500 text-white py-3">
         <div className="container">
           <div className="flex justify-between">
             <div className="left">

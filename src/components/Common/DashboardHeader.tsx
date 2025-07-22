@@ -7,7 +7,6 @@ import {
 } from "@/LocalStorage";
 import { useNavigate } from "react-router-dom";
 import Profile from "@/assets/images/profile.jpg";
-import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import {
   DropdownMenu,
@@ -15,18 +14,23 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import User from "../ui/icon/User";
-const DashboardHeader = () => {
+
+import CartIcon from "../ui/icon/CartIcon";
+import { NavLink } from "react-router-dom";
+import type { stateProps } from "@/types/PostType";
+const DashboardHeader = ({
+  selectedProducts,
+  setSelectedProducts,
+}: stateProps) => {
   const [activeUser, setActiveUser] = useState<IuserType>();
   const navigate = useNavigate();
   const handleLogOut = () => {
     deleteActiveUser();
     navigate("/login");
   };
-
+  console.log("selectedProducts in dashboard header", selectedProducts);
   useEffect(() => {
     const data = getActiveUser();
     if (data == null) {
@@ -39,10 +43,15 @@ const DashboardHeader = () => {
       <div className="logo">
         <img src={Logo} alt="Online Shopping" />
       </div>
-      <div className="header-right flex items-center">
-        <div className="notification mr-5">
-          <Notification />
-        </div>
+      <div className="header-right flex gap-8 justify-between items-center">
+        <NavLink className="cart notification" to="/dashboard/cart">
+          <CartIcon className="text-slate-400" />
+          <span className="badge rounded-full bg-red-600">4</span>
+        </NavLink>
+        <NavLink className="cart notification" to="/notification">
+          <Notification className="text-slate-400" />
+          <span className="badge rounded-full bg-red-600">10</span>
+        </NavLink>
         <div className="user-profile flex items-center mr-2">
           <span className="circle circle-sm border-4 border-slate-200 mr-2">
             <img src={Profile} alt="User" />

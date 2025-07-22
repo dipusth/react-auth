@@ -5,11 +5,13 @@ import { Register } from "./Register";
 import MainLayout from "@/components/layouts/MainLayout";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Dashboard from "./dashboard/Dashboard";
-import Product from "./Product";
+
 import Analytics from "./Analytics";
 import About from "./about/About";
 import Compiler from "./compiler/Compiler";
 import Home from "./home/Home";
+import Cart from "./cart/Cart";
+import Product from "./Product";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "analytics",
         element: <Analytics />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

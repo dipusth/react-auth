@@ -11,13 +11,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
+import type { LoginType } from "@/types/PostType";
 
-interface IloginType {
-  username: string;
-  password: string;
-}
 export const Login = () => {
-  const [data, setData] = useState<IloginType>({
+  const [data, setData] = useState<LoginType>({
     username: "",
     password: "",
   });

@@ -176,7 +176,7 @@ const Home = () => {
       </section>
       {/* Marquee Section */}
       <section>
-        <div className="list-marquee list-marquee-primary text-center bg-primary-900 item-center">
+        <div className="list-marquee list-marquee-primary text-center bg-primary-500 item-center">
           {[...Array(3)].map((_, index) => (
             <ul key={index} className="list-none list text-white font-bold">
               {marqueeCourse.map((item, i) => (
