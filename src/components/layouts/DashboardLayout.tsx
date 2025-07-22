@@ -4,12 +4,8 @@ import { useEffect } from "react";
 import DashboardHeader from "../Common/DashboardHeader";
 import { DaasboardWraper } from "../Common/Style";
 import styled from "styled-components";
-import type { stateProps } from "@/types/PostType";
 
-const DashboardLayout = ({
-  selectedProducts,
-  setSelectedProducts,
-}: stateProps) => {
+const DashboardLayout = () => {
   const location = useLocation();
   console.log("location", location);
 
@@ -21,10 +17,7 @@ const DashboardLayout = ({
   `;
   return (
     <DaasboardWraper>
-      <DashboardHeader
-        selectedProducts={selectedProducts}
-        setSelectedProducts={setSelectedProducts}
-      />
+      <DashboardHeader />
       <DashboardBodyWrapper className="dark:text-white flex wrapper">
         <Sidebar />
         <div className="flex-1">

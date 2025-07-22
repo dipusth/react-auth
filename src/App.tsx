@@ -11,20 +11,12 @@ import { Home } from "lucide-react";
 import About from "./pages/about/About";
 import Compiler from "./pages/compiler/Compiler";
 import "./App.css";
-import type { ProductType } from "./types/PostType";
-import { useState } from "react";
 
 function App() {
-  const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([]);
   const router = createBrowserRouter([
     {
       path: "/dashboard",
-      element: (
-        <DashboardLayout
-          selectedProducts={selectedProducts}
-          setSelectedProducts={setSelectedProducts}
-        />
-      ),
+      element: <DashboardLayout />,
       children: [
         {
           index: true, // default for /dashboard
@@ -32,12 +24,7 @@ function App() {
         },
         {
           path: "products",
-          element: (
-            <Product
-              selectedProducts={selectedProducts}
-              setSelectedProducts={setSelectedProducts}
-            />
-          ),
+          element: <Product />,
         },
         {
           path: "analytics",
