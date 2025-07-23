@@ -7,10 +7,14 @@ import Cart from "./pages/cart/Cart";
 import { Login } from "./pages/Login/Login";
 import { Register } from "./pages/Register";
 import MainLayout from "./components/layouts/MainLayout";
-import { Home } from "lucide-react";
 import About from "./pages/about/About";
-import Compiler from "./pages/compiler/Compiler";
+import Compiler from "./pages/blog/Blog";
 import "./App.css";
+import Home from "./pages/home/Home";
+import Course from "./pages/features/Features";
+import Features from "./pages/features/Features";
+import Blog from "./pages/blog/Blog";
+import Support from "./pages/support/Support";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,12 +57,20 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/about",
+          path: "about",
           element: <About />,
         },
         {
-          path: "/compiler",
-          element: <Compiler />,
+          path: "features",
+          element: <Features />,
+        },
+        {
+          path: "support",
+          element: <Support />,
+        },
+        {
+          path: "Blog",
+          element: <Blog />,
         },
       ],
     },

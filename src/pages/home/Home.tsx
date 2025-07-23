@@ -1,4 +1,3 @@
-import React from "react";
 import Prop1 from "../../assets/images/props-1.svg";
 import Prop2 from "../../assets/images/props-2.svg";
 import Prop3 from "../../assets/images/props-3.svg";
@@ -8,6 +7,7 @@ import Prop6 from "../../assets/images/props-6.svg";
 import MentorAdarsha from "../../assets/images/mentor-adarsha.png";
 import MentorSujit from "../../assets/images/mentor-sujit.png";
 import MentorManoj from "../../assets/images/mentor-manoj.png";
+import heroImg from "@/assets/images/hero-img.png";
 import videoImg1 from "../../assets/images/videos/video-img-1.png";
 import videoImg2 from "../../assets/images/videos/video-img-2.png";
 import videoImg3 from "../../assets/images/videos/video-img-3.png";
@@ -18,82 +18,96 @@ import video3 from "../../assets/images/videos/video-3.mp4";
 import video4 from "../../assets/images/videos/video-4.mp4";
 
 import "./Home.css";
-import Carousel from "../../components/carousel";
 
 const Home = () => {
   const marqueeCourse = [
-    "UI/UX",
-    "Graphic Design",
-    "Web Development",
-    "Quality Assurance",
+    "Zara",
+    "Tommy Hilfiger",
+    "Lenovo",
+    "Gucci",
+    "Under Armour",
+    "L'Oréals",
+    "Dell",
+    "Huawei ",
+    "Puma",
+    "Gucci",
+    "Under Armour",
+    "Levi’s",
+    "Philips",
   ];
-  const videoCard = [
-    {
-      img: videoImg1,
-      video: video1,
-    },
-    {
-      img: videoImg2,
-      video: video2,
-    },
-    {
-      img: videoImg3,
-      video: video3,
-    },
-    {
-      img: videoImg4,
-      video: video4,
-    },
-    {
-      img: videoImg2,
-      video: video2,
-    },
-    {
-      img: videoImg1,
-      video: video1,
-    },
-    {
-      img: videoImg4,
-      video: video4,
-    },
-    {
-      img: videoImg2,
-      video: video2,
-    },
-    {
-      img: videoImg3,
-      video: video3,
-    },
-    {
-      img: videoImg4,
-      video: video4,
-    },
-  ];
+  // const videoCard = [
+  //   {
+  //     img: videoImg1,
+  //     video: video1,
+  //   },
+  //   {
+  //     img: videoImg2,
+  //     video: video2,
+  //   },
+  //   {
+  //     img: videoImg3,
+  //     video: video3,
+  //   },
+  //   {
+  //     img: videoImg4,
+  //     video: video4,
+  //   },
+  //   {
+  //     img: videoImg2,
+  //     video: video2,
+  //   },
+  //   {
+  //     img: videoImg1,
+  //     video: video1,
+  //   },
+  //   {
+  //     img: videoImg4,
+  //     video: video4,
+  //   },
+  //   {
+  //     img: videoImg2,
+  //     video: video2,
+  //   },
+  //   {
+  //     img: videoImg3,
+  //     video: video3,
+  //   },
+  //   {
+  //     img: videoImg4,
+  //     video: video4,
+  //   },
+  // ];
   return (
     <>
       {/* Hero Section */}
-      <section className="hero-section props-wrapper">
+      <section className="hero-section props-wrapper pt-0">
         <div className="container items-center h-full relative">
           <div className="mid-block mx-auto text-center">
-            <h1 className="text-1 title font-nohemi capitalize">
-              Where your
+            {/* <span className="text-slate-500 italic font-bold">
+              Everything You Need
+            </span> */}
+            <h1 className="text-1 title font-nohemi capitalize flex justify-center">
+              Just
               <span className="font-black slider ml-3">
-                <span className="slide1 text-gradient">Ambition</span>
-                <span className="slide2 text-gradient">Courage</span>
-                <span className="slide3 text-gradient">Passion</span>
+                <span className="slide1 text-gradient">Click Away</span>
+                <span className="slide2 text-gradient">Shop Smart</span>
+                <span className="slide3 text-gradient">Live Better</span>
               </span>
-              <span className="block">
-                meets
+              {/* <span className="block">
+                Your Wishlist,
                 <span className="text-gradient font-black ml-2">
-                  opportunity
+                  Delivered Fast
                 </span>
-              </span>
+              </span> */}
             </h1>
-            <p className="text-[40px]">
-              Learn the skills that define your path. Your passion is your
-              power—let’s shape it into a future you'll love.
+            <p className="text-[20px]">
+              Discover a better way to shop — stylish, simple, and delivered to
+              your door
             </p>
-            <div className="hero-team mt-16">
+            <div className="her-img">
+              <img src={heroImg} alt="Hero Image" />
+            </div>
+            {/* <div className="hero-team mt-16">
               <h6 className="text-black">
                 Guided by mentors who turn
                 <span className="text-primary font-medium">"I can't"</span> into
@@ -152,33 +166,20 @@ const Home = () => {
                   <div className="circle circle-md">+8</div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
-          <div className="props props-1">
-            <img src={Prop1} alt="Props" />
-          </div>
-          <div className="props props-2">
-            <img src={Prop2} alt="Props" />
-          </div>
-          <div className="props props-3">
-            <img src={Prop3} alt="Props" />
-          </div>
-          <div className="props props-4">
-            <img src={Prop4} alt="Props" />
-          </div>
-          <div className="props props-5">
-            <img src={Prop5} alt="Props" />
-          </div>
-          <div className="props props-6">
-            <img src={Prop6} alt="Props" />
-          </div>
+
+          <div className="props props-2"></div>
+          <div className="props props-3"></div>
+          <div className="props props-4"></div>
+          <div className="props props-5"></div>
         </div>
       </section>
       {/* Marquee Section */}
       <section>
-        <div className="list-marquee list-marquee-primary text-center bg-primary-500 item-center">
+        <div className="list-marquee  text-center item-center container">
           {[...Array(3)].map((_, index) => (
-            <ul key={index} className="list-none list text-white font-bold">
+            <ul key={index} className="list-none list text-gray-400 font-bold">
               {marqueeCourse.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
@@ -189,14 +190,14 @@ const Home = () => {
       {/* Videos Section */}
       <section>
         <div className="container">
-          <div className="mid-block text-center mx-auto">
+          <div className="mid-block text-center mx-auto mt-10">
             <h2 className="text-2 title">
-              <span className="text-primary font-bold">Skill-tastic</span>{" "}
-              Moments! 📸
+              Your Wishlist
+              <span className="text-primary font-bold ml-2">
+                Delivered Fast
+              </span>
             </h2>
-            <p>
-              Boredom’s out! Fun learning is what Skillshikshya is all about!
-            </p>
+            <p>Why Pay More? Shop Online for Less</p>
           </div>
         </div>
         <div className="video-cards">

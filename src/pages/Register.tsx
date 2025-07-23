@@ -116,13 +116,13 @@ export const Register = () => {
                   Sign up
                 </Button>
 
-                <div className="text-center text-primary-500">
+                <div className="text-center text-primary">
                   {message && <p>{message} </p>}
                 </div>
               </div>
               <div className="text-center text-sm">
                 Already have an account?{" "}
-                <Link to="/Login" className="text-primary-500">
+                <Link to="/Login" className="text-primary">
                   Log in
                 </Link>
               </div>

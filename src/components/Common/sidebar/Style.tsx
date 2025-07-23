@@ -14,7 +14,7 @@ export const SidebarWrapper = styled.div`
     &:hover,
     &.active {
       background-color: #f1f1f1;
-      color: var(--color-primary-700);
+      color: var(--color-primary);
     }
   }
 `;

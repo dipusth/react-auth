@@ -1,4 +1,4 @@
-import Logo from "@/assets/images/logo.svg";
+import Logo from "@/assets/shoplogo2.png";
 import PythonImg from "@/assets/images/python.png";
 import Html5Img from "@/assets/images/html-5.png";
 import JsImg from "@/assets/images/js.png";
@@ -13,11 +13,12 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import Email from "../ui/icon/Email";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <header className="sticky inset-x-0 top-0 z-50 mb-20order-b-2 border-slate-200">
-      <div className="header-top bg-primary-500 text-white py-3">
+      <div className="header-top bg-primary text-white py-3">
         <div className="container">
           <div className="flex justify-between">
             <div className="left">
@@ -26,7 +27,7 @@ const Navbar = () => {
                 className="flex hover:underline "
               >
                 <Email className="text-2xl" />
-                <span className="ml-2">admin@skillshikshya.com</span>
+                <span className="ml-2">admin@onlineshopping.com</span>
               </a>
             </div>
             <div className="ml-auto divider">
@@ -43,12 +44,9 @@ const Navbar = () => {
       <div className="container">
         <nav className="flex items-center justify-between py-6">
           <div className="flex lg:flex-1">
-            <a href="/" className="-m-1.5 p-1.5 logo">
-              <span className="sr-only">Skillshikshya</span>
-              <span>
-                <img src={Logo} alt="Skillshikshya" />
-              </span>
-            </a>
+            <NavLink to={"/"} className="logo">
+              <img src={Logo} alt="Online Shopping" />
+            </NavLink>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,22 +71,22 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              to="/course"
+              to="/features"
               className="text-base/6 font-semibold text-gray-900"
             >
-              Course
+              Features
             </Link>
             <Link
-              to="/successStories"
+              to="/support"
               className="text-base/6 font-semibold text-gray-900"
             >
-              Success Stories
+              Help & Support
             </Link>
             <Link
-              to="/compiler"
+              to="/blog"
               className="text-base/6 font-semibold text-gray-900"
             >
-              Compiler
+              Blog
             </Link>
 
             <div className="dropdown inline-block relative">
@@ -96,26 +94,23 @@ const Navbar = () => {
                 type="button"
                 className="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
               >
-                <span className="mr-1">Verify Certiicates</span>
+                <span className="mr-1">Resources</span>
               </button>
               <ul className="dropdown-menu absolute hidden text-gray-700 pt-1">
                 {[
-                  { name: "Python", img: PythonImg },
-                  { name: "HTML", img: Html5Img },
-                  { name: "Javascript", img: JsImg },
-                  { name: "Java", img: JavaImg },
-                  { name: "C++", img: CImg },
-                  { name: "Rust", img: RustImg },
-                  { name: "Ruby", img: RubyImg },
-                  { name: "Go lang", img: { GoLangImg } },
-                  { name: "Php", img: PhpImg },
+                  { name: "Knowledge Base", img: "" },
+                  { name: "Delivery", img: "" },
+                  { name: "Faq's", img: "" },
+                  { name: "Testimonials", img: "" },
                 ].map(({ name, img }) => (
                   <li key={name}>
                     <a className="flex justify-between" href="#">
                       {name}
-                      <span className="icon">
-                        <img src={img} alt={name} />
-                      </span>
+                      {img && (
+                        <span className="icon">
+                          <img src={img} alt={name} />
+                        </span>
+                      )}
                     </a>
                   </li>
                 ))}
@@ -124,9 +119,12 @@ const Navbar = () => {
             {/* <Button className="btn" variant={"outline"}>
               Log in
             </Button> */}
-            <Button className="btn-gradient btn btn-shadow ml-3">
-              Access Masterclass
-            </Button>
+            <NavLink
+              to="/register"
+              className="btn-gradient btn ml-3 text-white"
+            >
+              Get Started
+            </NavLink>
           </div>
         </nav>
         {/* Mobile menu, show/hide based on menu open state */}

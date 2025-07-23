@@ -33,10 +33,7 @@
 .hero-section {
   background-position: center;
   background-size: cover;
-  padding-top: 5rem;
-  @media (min-width: 768px) {
-    height: 500px;
-  }
+
 
   /* Slider Animation */
   .slider {
@@ -47,7 +44,7 @@
     vertical-align: middle;
     text-align: center;
     @media (min-width: 992px) {
-      min-width: 17.8125rem;
+      min-width: 380px;
     }
     @media (min-width: 768px) {
       text-align: left;
@@ -140,15 +137,29 @@
 
   .card-tooltip {
   }
-  @media (min-width: 992px) {
-    height: 676px;
-    padding-top: 8.4375rem;
-  }
+
 }
 
 .props-wrapper {
   /* Props */
   .props {
+    background-color: rgb(77, 140, 199);
+    opacity: 0.5;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: relative;
+    &:after{
+      position: absolute;
+      content: "";
+      top: 20px;
+      left: 20px;
+      background-color: rgb(88, 163, 153);
+      opacity: 0.9;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+    }
     img {
       max-height: 6.25rem;
       max-width: 6.25rem;
@@ -161,18 +172,41 @@
   }
 
   .props-1 {
-    top: -4.375rem;
+    top: 0;
     left: 3.4375rem;
   }
 
   .props-2 {
-    bottom: 15.625rem;
+    position: absolute;
+    top: 0;
     left: 4.375rem;
+        background-color: rgb(77, 140, 199);
+    opacity: 0.5;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    &:after{
+      position: absolute;
+      content: "";
+      top: 20px;
+      left: 20px;
+      background-color: rgb(88, 163, 153);
+      opacity: 0.9;
+      width: 100px;
+      height: 100px;
+        width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
+      border-radius: 100%;
+    }
   }
 
   .props-3 {
-    bottom: 4.0625rem;
-    left: 17.5rem;
+    bottom: 20%;
+    left: 11.5rem;
   }
 
   .props-4 {
@@ -181,7 +215,7 @@
   }
 
   .props-5 {
-    bottom: 17.5rem;
+    top: 20%;
     right: 2.6875rem;
   }
 
@@ -199,14 +233,13 @@
 }
 
 .mid-block {
-  max-width: 684px;
+  max-width:46.25rem;
   @media (max-width: 767px) {
     padding: 0 1.25rem;
   }
 
   p {
     margin-top: 1.5625rem;
-    font-size: 1.5rem;
     color: var(--black-800);
     margin-bottom: 3rem;
   }
@@ -225,14 +258,14 @@
 
   ul,
   div {
-    animation: marquee 10s infinite linear;
+    animation: marquee 30s infinite linear;
   }
 
   li {
     display: inline-block;
     text-align: center;
     font-size: 32px;
-    margin: 0 20px;
+    margin: 0 10px;
     font-family: var(--text-nohemi);
   }
 

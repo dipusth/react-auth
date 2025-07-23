@@ -118,7 +118,7 @@ export const Login = () => {
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link to="/Register" className="text-primary-500">
+                <Link to="/Register" className="text-primary">
                   Register
                 </Link>
               </div>

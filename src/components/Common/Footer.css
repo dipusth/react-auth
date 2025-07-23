@@ -3,16 +3,11 @@ footer {
   overflow: hidden;
   padding: 3.375rem 1.25rem 2.125rem;
   color: white;
-  background: var(
-    --Gradient,
-    linear-gradient(180deg, #1daa7e 0%, #1a8463 100%)
-  );
   background-image: url("../images/bg-footer.png");
-  background-color: #1a8463;
+  background-color: var(--color-slate-600);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 160%;
-  border-radius: 32px;
   min-height: 500px;
   @media (max-width: 1023px) {
     background-image: none;

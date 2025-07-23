@@ -36,9 +36,9 @@ const DashboardHeader = () => {
   }, [navigate]);
   return (
     <div className="flex justify-between px-5 header-dashboard py-2">
-      <div className="logo">
+      <NavLink to={"/"} className="logo">
         <img src={Logo} alt="Online Shopping" />
-      </div>
+      </NavLink>
       <div className="header-right flex gap-8 justify-between items-center">
         <NavLink className="cart notification" to="/dashboard/cart">
           <CartIcon className="text-slate-400" />
