@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Delete from "@/components/ui/icon/Delete";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { fetchApi } from "@/hooks/useFetchApi";
-import type { ProductType } from "@/types/PostType";
+import type { ProductType, stateProps } from "@/types/PostType";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 //   event: React.MouseEvent<HTMLTableRowElement>;
 //   data: Product;
 // }
-const Product = () => {
+const Product = ({ selectedProducts, setSelectedProducts }: stateProps) => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [animate, setAnimate] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([]);
-  const productApi = "https://fakestoreapi.com/products";
 
+  const productApi = "https://fakestoreapi.com/products";
+  console.log("selectedProducts before useEffect", selectedProducts);
   useEffect(() => {
     const fetchProducts = async () => {
       try {

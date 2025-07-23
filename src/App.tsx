@@ -13,12 +13,21 @@ import Home from "./pages/home/Home";
 import Features from "./pages/features/Features";
 import Blog from "./pages/blog/Blog";
 import Support from "./pages/support/Support";
+import { useState } from "react";
+import type { ProductType } from "./types/PostType";
 
 function App() {
+  const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([]);
+  console.log("selectedProducts in App", selectedProducts);
   const router = createBrowserRouter([
     {
       path: "/dashboard",
-      element: <DashboardLayout />,
+      element: (
+        <DashboardLayout
+          selectedProducts={selectedProducts}
+          setSelectedProducts={setSelectedProducts}
+        />
+      ),
       children: [
         {
           index: true, // default for /dashboard
@@ -26,7 +35,12 @@ function App() {
         },
         {
           path: "products",
-          element: <Product />,
+          element: (
+            <Product
+              selectedProducts={selectedProducts}
+              setSelectedProducts={setSelectedProducts}
+            />
+          ),
         },
         {
           path: "analytics",

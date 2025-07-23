@@ -19,14 +19,18 @@ import {
 
 import CartIcon from "../ui/icon/CartIcon";
 import { NavLink } from "react-router-dom";
-const DashboardHeader = () => {
+import type { stateProps } from "@/types/PostType";
+const DashboardHeader = ({
+  selectedProducts,
+  setSelectedProducts,
+}: stateProps) => {
   const [activeUser, setActiveUser] = useState<IuserType>();
   const navigate = useNavigate();
   const handleLogOut = () => {
     deleteActiveUser();
     navigate("/login");
   };
-
+  console.log("selectedProducts in dashboard header", selectedProducts);
   useEffect(() => {
     const data = getActiveUser();
     if (data == null) {
