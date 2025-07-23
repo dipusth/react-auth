@@ -171,7 +171,7 @@ const Home = () => {
 
           <div className="props props-2"></div>
           <div className="props props-3"></div>
-          <div className="props props-4"></div>
+          {/* <div className="props props-4"></div> */}
           <div className="props props-5"></div>
         </div>
       </section>
