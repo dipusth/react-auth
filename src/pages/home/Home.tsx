@@ -93,12 +93,6 @@ const Home = () => {
                 <span className="slide2 text-gradient">Shop Smart</span>
                 <span className="slide3 text-gradient">Live Better</span>
               </span>
-              {/* <span className="block">
-                Your Wishlist,
-                <span className="text-gradient font-black ml-2">
-                  Delivered Fast
-                </span>
-              </span> */}
             </h1>
             <p className="text-[20px]">
               Discover a better way to shop — stylish, simple, and delivered to
@@ -107,68 +101,7 @@ const Home = () => {
             <div className="her-img">
               <img src={heroImg} alt="Hero Image" />
             </div>
-            {/* <div className="hero-team mt-16">
-              <h6 className="text-black">
-                Guided by mentors who turn
-                <span className="text-primary font-medium">"I can't"</span> into
-                <span className="text-primary-700 font-medium">
-                  "Watch me do this!”
-                </span>
-              </h6>
-              <div className="hero-team-member circle-wrap mt-4">
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">
-                    <img src={MentorAdarsha} alt="" />
-                  </div>
-                  <div className="card-tooltip text-black">
-                    <h4 className="text-black font-bold">Adarsha Lamichhane</h4>
-                    <span>UI/UX Mentor</span>
-                  </div>
-                </div>
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">
-                    <img src={MentorSujit} alt="" />
-                  </div>
-                  <div className="card-tooltip text-black">
-                    <h4 className="text-black font-bold">Sujit Thapa</h4>
-                    <span>Data Science Mentor</span>
-                  </div>
-                </div>
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">
-                    <img src={MentorManoj} alt="" />
-                  </div>
-                  <div className="card-tooltip text-black">
-                    <h4 className="text-black font-bold">Manoj Kumar Das</h4>
-                    <span>UI/UX Mentor</span>
-                  </div>
-                </div>
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">
-                    <img src={MentorAdarsha} alt="" />
-                  </div>
-                  <div className="card-tooltip text-black">
-                    <h4 className="text-black font-bold">Adarsha Lamichhane</h4>
-                    <span>UI/UX Mentor</span>
-                  </div>
-                </div>
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">
-                    <img src={MentorSujit} alt="" />
-                  </div>
-                  <div className="card-tooltip text-black">
-                    <h4 className="text-black font-bold">Sujit Thapa</h4>
-                    <span>Data Science Mentor</span>
-                  </div>
-                </div>
-
-                <div className="icon-tooltip">
-                  <div className="circle circle-md">+8</div>
-                </div>
-              </div>
-            </div> */}
           </div>
-
           <div className="props props-2"></div>
           <div className="props props-3"></div>
           {/* <div className="props props-4"></div> */}
