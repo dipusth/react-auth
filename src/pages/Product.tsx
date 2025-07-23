@@ -184,7 +184,7 @@ const Product = () => {
                     <td className="p-2 text-center">
                       <Link
                         to={`/product/${product.id}`}
-                        className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+                        className="bg-primary hover:bg-green-600 text-white px-3 py-1 rounded"
                       >
                         View
                       </Link>

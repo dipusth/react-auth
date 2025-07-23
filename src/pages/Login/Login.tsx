@@ -54,7 +54,7 @@ export const Login = () => {
     <div className="bg-wrapper bg-props bg-primary-400  h-full overflow-hidden ">
       <div className="flex item-center h-full">
         <div className="z-10 form-wrapper max-w-[400px] mx-auto relative">
-          <Card>
+          <Card className="border-0">
             <CardHeader className="text-center">
               <CardTitle className="text-xl">Welcome</CardTitle>
               <CardDescription>
@@ -131,7 +131,7 @@ export const Login = () => {
                   </div>
                   <div className="text-center text-sm">
                     Don&apos;t have an account?{" "}
-                    <Link to="/Register" className="text-primary">
+                    <Link to="/register" className="text-primary">
                       Register
                     </Link>
                   </div>

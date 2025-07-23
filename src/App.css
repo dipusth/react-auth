@@ -205,15 +205,16 @@ ul{
     border-radius: 10%;
     right: 35%;
     top: auto;
-    bottom: -65%;
+    bottom: -70%;
     transform: rotate(38deg) scale(1.9);
   }
   &:before{
-    left: -0%;
+    left: -55%;
     right: auto;
     top: 26%;
     width: 50%;
     height: 90%;
+     opacity: 0.5;
 
   }
 }

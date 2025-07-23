@@ -77,7 +77,7 @@ export const Register = () => {
     <div className="bg-wrapper bg-props bg-primary-400  h-full overflow-hidden ">
       <div className="flex item-center h-full">
         <div className="form-wrapper py-20 max-w-[400px] mx-auto z-10 relative">
-          <Card>
+          <Card className="border-0">
             <CardHeader className="text-center">
               <CardTitle className="text-xl">Register</CardTitle>
               <CardDescription>
@@ -132,7 +132,7 @@ export const Register = () => {
                   </div>
                   <div className="text-center text-sm">
                     Already have an account?{" "}
-                    <Link to="/Login" className="text-primary">
+                    <Link to="/login" className="text-primary">
                       Log in
                     </Link>
                   </div>
