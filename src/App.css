@@ -196,7 +196,7 @@ ul{
 }
 .bg-props{
   &::after,&:before{
-    position: absolute;
+    /* position: absolute;
     content: "";
     width: 100%;
     height: 100%;
@@ -206,7 +206,7 @@ ul{
     right: 35%;
     top: auto;
     bottom: -70%;
-    transform: rotate(38deg) scale(1.9);
+    transform: rotate(38deg) scale(1.9); */
   }
   &:before{
     left: -55%;
