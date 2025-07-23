@@ -108,7 +108,7 @@ const Product = () => {
   return (
     <div className="dark:text-white p-5 h-full">
       <div className="flex justify-between">
-        <h1 className="text-4xl">Product List</h1>
+        <h1 className="text-2xl pb-3 font-medium">Product List</h1>
         {selectedProducts.length > 0 && (
           <>
             <div
@@ -147,7 +147,7 @@ const Product = () => {
                 const hasData = selectedProducts.some(
                   (item) => item.id === product.id
                 );
-
+                console.log("const hasdata", hasData);
                 return (
                   <tr
                     key={product.id}

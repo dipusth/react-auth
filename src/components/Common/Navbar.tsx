@@ -1,19 +1,8 @@
 import Logo from "@/assets/shoplogo2.png";
-import PythonImg from "@/assets/images/python.png";
-import Html5Img from "@/assets/images/html-5.png";
-import JsImg from "@/assets/images/js.png";
-import JavaImg from "@/assets/images/java.png";
-import CImg from "@/assets/images/c-.png";
-import RustImg from "@/assets/images/rust.png";
-import RubyImg from "@/assets/images/ruby.png";
-import GoLangImg from "@/assets/images/go-lang.png";
-import PhpImg from "@/assets/images/php.png";
-
-import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
 import Email from "../ui/icon/Email";
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (

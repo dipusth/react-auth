@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   addNewUser,
@@ -37,6 +37,12 @@ export const Register = () => {
     username: "",
     password: "",
   });
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   const [message, setMessage] = useState<string>("");
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const id = event.target.id;
@@ -68,71 +74,77 @@ export const Register = () => {
     // Save the user in local storage
   };
   return (
-    <div className="form-wrapper py-20 max-w-[400px] mx-auto">
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Register</CardTitle>
-          <CardDescription>Please enter the form details below</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleFormSubmit}>
-            <div className="grid gap-6">
-              <div className="grid gap-6">
-                <div className="grid gap-3">
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Enter Full Name"
-                    value={data.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="grid gap-3">
-                  <Label htmlFor="username">username</Label>
-                  <Input
-                    id="username"
-                    type="email"
-                    placeholder="m@example.com"
-                    value={data.username}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="grid gap-3">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">Password</Label>
-                  </div>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={data.password}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full btn">
-                  Sign up
-                </Button>
+    <div className="bg-wrapper bg-props bg-primary-400  h-full overflow-hidden ">
+      <div className="flex item-center h-full">
+        <div className="form-wrapper py-20 max-w-[400px] mx-auto z-10 relative">
+          <Card>
+            <CardHeader className="text-center">
+              <CardTitle className="text-xl">Register</CardTitle>
+              <CardDescription>
+                Please enter the form details below
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleFormSubmit}>
+                <div className="grid gap-6">
+                  <div className="grid gap-6">
+                    <div className="grid gap-3">
+                      <Label htmlFor="name">Name</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        placeholder="Enter Full Name"
+                        value={data.name}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="grid gap-3">
+                      <Label htmlFor="username">username</Label>
+                      <Input
+                        id="username"
+                        type="email"
+                        placeholder="m@example.com"
+                        value={data.username}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="grid gap-3">
+                      <div className="flex items-center">
+                        <Label htmlFor="password">Password</Label>
+                      </div>
+                      <Input
+                        id="password"
+                        type="password"
+                        value={data.password}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full btn">
+                      Sign up
+                    </Button>
 
-                <div className="text-center text-primary">
-                  {message && <p>{message} </p>}
+                    <div className="text-center text-primary">
+                      {message && <p>{message} </p>}
+                    </div>
+                  </div>
+                  <div className="text-center text-sm">
+                    Already have an account?{" "}
+                    <Link to="/Login" className="text-primary">
+                      Log in
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="text-center text-sm">
-                Already have an account?{" "}
-                <Link to="/Login" className="text-primary">
-                  Log in
-                </Link>
-              </div>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-      <div className="mt-1 text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+              </form>
+            </CardContent>
+          </Card>
+          <div className="mt-1  text-white text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+            By clicking continue, you agree to our{" "}
+            <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+          </div>
+        </div>
       </div>
     </div>
   );
