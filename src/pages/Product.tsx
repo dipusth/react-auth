@@ -128,7 +128,7 @@ const Product = ({ selectedProducts, setSelectedProducts }: stateProps) => {
           </>
         )}
       </div>
-      <div className="h-full">
+      <div className="h-[96%]">
         <ScrollArea className="h-full">
           <table border={1} className="w-full">
             <thead>
